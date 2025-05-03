@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Департаменты марсианской колонии</h2>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Название департамента</th>
+                    <th>Начальник</th>
+                    <th>Участники</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                <tr>
+                    <td>{{ department.id }}</td>
+                    <td>{{ department.title }}</td>
+                    <td>{{ department.chief }}</td>
+                    <td>{{ department.members }}</td>
+                    <td>{{ department.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <h4 class="mission-quote">Вместе мы освоим Марс!</h4>
+</div>
+{% endblock %}

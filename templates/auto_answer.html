@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">{{ title }}</h1>
+    <div class="form-container">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Фамилия:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ surname }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Имя:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ name }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Образование:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ education }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Профессия:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ profession }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Пол:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ sex }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Мотивация:</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ motivation }}</p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Готовы остаться на Марсе?</label>
+            <div class="col-sm-9">
+                <p class="form-control-plaintext">{{ ready }}</p>
+            </div>
+        </div>
+    </div>
+    <h4 class="mission-quote">И на Марсе будут яблони цвести!</h4>
+</div>
+{% endblock %}
