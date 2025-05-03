@@ -58,5 +58,21 @@ def departments():
                          departments=departments_list,
                          title="Департаменты")
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        astronaut_id = request.form.get('astronaut_id')
+        astronaut_pass = request.form.get('astronaut_pass')
+        captain_id = request.form.get('captain_id')
+        captain_token = request.form.get('captain_token')
+
+
+        return render_template('success.html',
+                               title="Доступ разрешен",
+                               message="Системы корабля разблокированы")
+
+    return render_template('login.html', title="Авторизация")
+
 if __name__ == '__main__':
     app.run(debug=True)

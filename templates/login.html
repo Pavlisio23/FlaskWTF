@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="auth-form">
+                <div class="mission-logo"></div>
+                <h2 class="text-center mb-4">Доступ к системам корабля</h2>
+                <form method="POST">
+                    <h4 class="section-title">Данные астронавта</h4>
+                    <div class="mb-3">
+                        <label for="astronaut_id" class="form-label">ID астронавта</label>
+                        <input type="text" class="form-control" id="astronaut_id" name="astronaut_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="astronaut_pass" class="form-label">Пароль астронавта</label>
+                        <input type="password" class="form-control" id="astronaut_pass" name="astronaut_pass" required>
+                    </div>
+
+                    <h4 class="section-title mt-4">Подтверждение капитана</h4>
+                    <div class="mb-3">
+                        <label for="captain_id" class="form-label">ID капитана/заместителя</label>
+                        <input type="text" class="form-control" id="captain_id" name="captain_id" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="captain_token" class="form-label">Токен подтверждения</label>
+                        <input type="password" class="form-control" id="captain_token" name="captain_token" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Разблокировать системы</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="mission-logo"></div>
+    <h2 class="text-success mb-4">{{ message }}</h2>
+    <div class="alert alert-success">
+        <h4>Доступ предоставлен</h4>
+        <p>Все системы корабля теперь под вашим контролем.</p>
+        <p>Помните - безопасность экипажа превыше всего!</p>
+    </div>
+    <a href="/login" class="btn btn-outline-primary">Вернуться</a>
+</div>
+{% endblock %}
