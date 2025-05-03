@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Профессии для марсианской миссии</h2>
+    
+    {% if list_type == 'ol' %}
+        <ol class="list-group list-group-numbered">
+            {% for prof in professions %}
+                <li class="list-group-item">{{ prof }}</li>
+            {% endfor %}
+        </ol>
+    {% elif list_type == 'ul' %}
+        <ul class="list-group">
+            {% for prof in professions %}
+                <li class="list-group-item">{{ prof }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-danger">
+            Неверный параметр списка. Используйте 'ol' для нумерованного или 'ul' для маркированного списка.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
