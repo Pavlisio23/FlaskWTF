@@ -74,5 +74,19 @@ def login():
 
     return render_template('login.html', title="Авторизация")
 
+@app.route('/distribution')
+def distribution():
+    astronauts = [
+        "Ридли Скотт",
+        "Энди Уир",
+        "Марк Уотни",
+        "Венката Капур",
+        "Тедди Сандерс",
+        "Шон Бин"
+    ]
+    return render_template('distribution.html',
+                         astronauts=astronauts,
+                         title="Размещение по каютам")
+
 if __name__ == '__main__':
     app.run(debug=True)
