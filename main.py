@@ -88,5 +88,28 @@ def distribution():
                          astronauts=astronauts,
                          title="Размещение по каютам")
 
+
+@app.route('/table')
+def table():
+    sex = request.args.get('sex', 'male').lower()
+    age = int(request.args.get('age', 25))
+
+    if sex == 'female':
+        wall_color = '#ffb6c1'
+    else:
+        wall_color = '#87cefa'
+
+    if age < 21:
+        image = 'МаленькийМарсианин.jpg'
+    else:
+        image = 'БольшойМарсианин.jpg'
+
+    return render_template('table.html',
+                           title="Оформление каюты",
+                           wall_color=wall_color,
+                           image=image,
+                           sex=sex.capitalize(),
+                           age=age)
+
 if __name__ == '__main__':
     app.run(debug=True)

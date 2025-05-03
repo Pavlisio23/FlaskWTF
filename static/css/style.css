@@ -236,3 +236,37 @@ h1, h2, h3, h4 {
     background-color: #d32f2f;
     margin-left: 8px;
 }
+/* Стили для оформления кают */
+.cabin-table {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.cabin-table th {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.cabin-table td {
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.info-box {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #1a237e;
+}
+
+/* Цвета для разных полов */
+.female-color {
+    background-color: #ffb6c1;
+    color: white;
+}
+
+.male-color {
+    background-color: #87cefa;
+    color: white;
+}

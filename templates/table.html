@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Оформление каюты</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table table-bordered cabin-table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Значение</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Цвет стен</td>
+                        <td style="background-color: {{ wall_color }}; color: white; font-weight: bold;">
+                            {{ wall_color }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Марсианин</td>
+                        <td class="text-center">
+                            <img src="{{ url_for('static', filename='images/' + image) }}" 
+                                 alt="Марсианин" class="img-fluid" style="max-height: 200px;">
+                            <p class="mt-2">
+                                {% if age < 21 %}
+                                    Марсианин-ребенок
+                                {% else %}
+                                    Взрослый марсианин
+                                {% endif %}
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box mt-4">
+                <p><strong>Пол:</strong> {{ sex }}</p>
+                <p><strong>Возраст:</strong> {{ age }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
