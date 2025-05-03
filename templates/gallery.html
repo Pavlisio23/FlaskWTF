@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Галерея марсианских пейзажей</h2>
+    
+    <!-- Форма загрузки -->
+    <div class="upload-form mb-5">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="file" accept="image/*" required>
+                <button class="btn btn-primary" type="submit">Загрузить</button>
+            </div>
+            <small class="text-muted">Допустимые форматы: .jpg, .jpeg, .png, .gif</small>
+        </form>
+    </div>
+    
+    <!-- Галерея изображений -->
+    <div class="row gallery-row">
+        {% if images %}
+            {% for image in images %}
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/gallery/' + image) }}" 
+                         class="img-fluid rounded" 
+                         alt="Марсианский пейзаж">
+                    <div class="image-name mt-2">{{ image }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-center">
+                <div class="alert alert-info">
+                    Галерея пуста. Загрузите первые изображения!
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

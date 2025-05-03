@@ -1,6 +1,18 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+import os
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = 'static/images/gallery'
+app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif'}
+
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
 
 @app.route('/')
 @app.route('/index')
@@ -110,6 +122,31 @@ def table():
                            image=image,
                            sex=sex.capitalize(),
                            age=age)
+
+
+@app.route('/gallery', methods=['GET', 'POST'])
+def gallery():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return redirect(request.url)
+
+        file = request.files['file']
+        if file.filename == '':
+            return redirect(request.url)
+
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return redirect(url_for('gallery'))
+
+    # Получаем список изображений из папки
+    images = []
+    for f in os.listdir(app.config['UPLOAD_FOLDER']):
+        if f.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']:
+            images.append(f)
+
+    return render_template('gallery.html', images=images)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
