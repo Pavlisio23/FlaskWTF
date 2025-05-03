@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">Наш случайный герой</h2>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="crew-card text-center">
+                <img src="{{ member.photo }}" 
+                     alt="{{ member.first_name }} {{ member.last_name }}" 
+                     class="img-fluid rounded-circle mb-3 crew-photo">
+                
+                <h3>{{ member.first_name }} {{ member.last_name }}</h3>
+                
+                <div class="specialties mt-4">
+                    <h4>Специальности:</h4>
+                    <ul class="list-group">
+                        {% for specialty in member.specialties|sort %}
+                        <li class="list-group-item">{{ specialty|capitalize }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <a href="/member" class="btn btn-primary">Выбрать другого</a>
+    </div>
+</div>
+{% endblock %}

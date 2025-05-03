@@ -1,0 +1,28 @@
+{
+    "crew": [
+        {
+            "first_name": "Марк",
+            "last_name": "Уотни",
+            "photo": "/static/images/crew/watney.jpg",
+            "specialties": ["ботаник", "инженер", "астронавт"]
+        },
+        {
+            "first_name": "Мелисса",
+            "last_name": "Льюис",
+            "photo": "/static/images/crew/lewis.jpg",
+            "specialties": ["командир", "пилот", "геолог"]
+        },
+        {
+            "first_name": "Ридли",
+            "last_name": "Скотт",
+            "photo": "/static/images/crew/scott.jpg",
+            "specialties": ["капитан", "навигатор", "исследователь"]
+        },
+        {
+            "first_name": "Алекс",
+            "last_name": "Вогель",
+            "photo": "/static/images/crew/vogel.jpg",
+            "specialties": ["химик", "врач", "биолог"]
+        }
+    ]
+}

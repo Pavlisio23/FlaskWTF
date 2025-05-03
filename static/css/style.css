@@ -313,3 +313,27 @@ h1, h2, h3, h4 {
 .upload-form:hover {
     border-color: #adb5bd;
 }
+/* Стили для карточки члена экипажа */
+.crew-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.crew-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid #1a237e;
+}
+
+.specialties .list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.specialties .list-group-item:last-child {
+    border-bottom: none;
+}

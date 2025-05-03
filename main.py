@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
+import json
+import random
 
 
 app = Flask(__name__)
@@ -146,6 +148,18 @@ def gallery():
             images.append(f)
 
     return render_template('gallery.html', images=images)
+
+
+@app.route('/member')
+def member():
+    with open('templates/crew_members.json', 'r', encoding='utf-8') as f:
+        crew_data = json.load(f)
+
+    random_member = random.choice(crew_data['crew'])
+
+    return render_template('member.html',
+                           title="Член экипажа",
+                           member=random_member)
 
 
 if __name__ == '__main__':
